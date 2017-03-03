@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="jquery-2.2.4.js"></script>
+  <title>exercice 3</title>
+</head>
+<body>
+  <button type="button" name="button" id="on">click</button>
+  <input type="text" name="" value="" id="check">
+  <script>/*Construisez une page html avec un bouton et un champ texte.
+  Le but est de trouver un nombre entre 0 et 100. A chaque réponse la page répond :
+  plus
+  moins
+  correcte
+  Quand la réponse est trouvée, on obtiens le nombre d'essai que l'on a fait.*/
+  $(document).ready(function(){
+    /*declaration de vaiable math.random(de 0 a 1)que l'on * par 101 pour
+    avoir 100 au max*/
+    var nb = Math.floor(Math.random()*101);
+    var count = 0;//declaration varaible = a 0
+    $('#on').click(function(){// par raport au random
+      var answer = $('#check').val();//answer=reponse en en,on recupere valeur
+      if($.isNumeric(answer)){//si c un nombre faire
+        count = count + 1;//pour compter le nombre de click
+        if(answer == nb) {// si le nombre et = faire l'alert
+        alert('correcte en ' + count + ' coups');
+      }else if (answer < nb) {//sinon si le nombre inferieur faire alert
+        alert('plus');
+      }else {// sinon le nombre est superieur faire l'alert
+      alert('moins');
+    }
+  }
+  else{//sinon(c pas un nombre)donner l'alert
+  alert('mettre un nombre svp');
+}
+});
+});
+</script>
+</body>
+</html>
